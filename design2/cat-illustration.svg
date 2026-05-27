@@ -1,0 +1,31 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="편안하게 앉아 있는 고양이 일러스트">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="84" x2="620" y2="636" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E8FFF7"/>
+    </linearGradient>
+    <linearGradient id="body" x1="180" y1="220" x2="540" y2="540" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4D9A6"/>
+      <stop offset="1" stop-color="#DDBD85"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="252" y1="320" x2="456" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#159A50"/>
+      <stop offset="1" stop-color="#0F7F41"/>
+    </linearGradient>
+  </defs>
+  <circle cx="360" cy="360" r="300" fill="url(#bg)"/>
+  <ellipse cx="360" cy="520" rx="176" ry="38" fill="#CFEFE7"/>
+  <path d="M235 185L266 264L327 194L335 307C335 307 291 334 252 317C213 300 199 246 235 185Z" fill="#F0C78F"/>
+  <path d="M485 185L454 264L393 194L385 307C385 307 429 334 468 317C507 300 521 246 485 185Z" fill="#F0C78F"/>
+  <path d="M242 262C242 216 279 181 325 181H395C441 181 478 216 478 262V401C478 455 432 497 379 497H341C288 497 242 455 242 401V262Z" fill="url(#body)"/>
+  <path d="M293 311C293 282 316 259 345 259H375C404 259 427 282 427 311V397C427 425 404 448 375 448H345C316 448 293 425 293 397V311Z" fill="url(#accent)"/>
+  <circle cx="323" cy="332" r="15" fill="#111C2C"/>
+  <circle cx="397" cy="332" r="15" fill="#111C2C"/>
+  <path d="M350 350L362 364L376 350" stroke="#111C2C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M336 382C345 393 355 398 362 398C369 398 379 393 388 382" stroke="#111C2C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M188 334C210 322 234 320 254 323" stroke="#8D7142" stroke-width="8" stroke-linecap="round"/>
+  <path d="M188 359C212 356 234 359 254 367" stroke="#8D7142" stroke-width="8" stroke-linecap="round"/>
+  <path d="M532 334C510 322 486 320 466 323" stroke="#8D7142" stroke-width="8" stroke-linecap="round"/>
+  <path d="M532 359C508 356 486 359 466 367" stroke="#8D7142" stroke-width="8" stroke-linecap="round"/>
+  <path d="M278 461C299 496 327 517 360 517C393 517 421 496 442 461" stroke="#111C2C" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
