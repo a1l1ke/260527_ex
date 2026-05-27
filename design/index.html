@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고양이 병원 - 건강한 냥이 가족</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Plus Jakarta Sans Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Colors from DESIGN.md */
+            --surface: #f9f9ff;
+            --surface-dim: #cfdaf1;
+            --surface-bright: #f9f9ff;
+            --surface-container-lowest: #ffffff;
+            --surface-container-low: #f0f3ff;
+            --surface-container: #e7eeff;
+            --surface-container-high: #dee8ff;
+            --surface-container-highest: #d8e3fa;
+            --on-surface: #111c2c;
+            --on-surface-variant: #43474e;
+            --inverse-surface: #263142;
+            --inverse-on-surface: #ebf1ff;
+            --outline: #74777f;
+            --outline-variant: #c4c6cf;
+            --surface-tint: #006d35;
+            --primary: #159A50; /* Emerald Green */
+            --on-primary: #ffffff;
+            --primary-container: #003f1c;
+            --on-primary-container: #3bb466;
+            --inverse-primary: #68dd8b;
+            --secondary: #B2F5EA; /* Teal */
+            --on-secondary: #ffffff;
+            --secondary-container: #acefe4;
+            --on-secondary-container: #2b6f66;
+            --tertiary: #FFF9F0; /* Cream */
+            --on-tertiary: #ffffff;
+            --tertiary-container: #383630;
+            --on-tertiary-container: #a39f97;
+            --error: #ba1a1a;
+            --on-error: #ffffff;
+            --error-container: #ffdad6;
+            --on-error-container: #93000a;
+            --primary-fixed: #85faa5;
+            --primary-fixed-dim: #68dd8b;
+            --on-primary-fixed: #00210c;
+            --on-primary-fixed-variant: #005227;
+            --secondary-fixed: #acefe4;
+            --secondary-fixed-dim: #91d3c8;
+            --on-secondary-fixed: #00201c;
+            --on-secondary-fixed-variant: #005049;
+            --tertiary-fixed: #e7e2d9;
+            --tertiary-fixed-dim: #cbc6bd;
+            --on-tertiary-fixed: #1d1b16;
+            --on-tertiary-fixed-variant: #494640;
+            --background: #f9f9ff;
+            --on-background: #111c2c;
+            --surface-variant: #d8e3fa;
+            
+            /* Typography */
+            --font-family-base: 'Plus Jakarta Sans', sans-serif;
+            
+            /* Radius */
+            --border-radius-sm: 0.25rem;
+            --border-radius: 0.5rem;
+            --border-radius-md: 0.75rem;
+            --border-radius-lg: 1rem;
+            --border-radius-xl: 1.5rem;
+            --border-radius-full: 9999px;
+            
+            /* Spacing */
+            --spacing-base: 8px;
+            --spacing-xs: 4px;
+            --spacing-sm: 12px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 80px;
+            --container-max: 1200px;
+            --gutter: 24px;
+        }
+        
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--background);
+            color: var(--on-surface);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family-base);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--on-surface);
+        }
+        
+        .display-4 {
+            font-size: calc(1.5rem + 3.3vw);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 400;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: var(--surface-container-lowest);
+            box-shadow: 0px 4px 20px rgba(21, 154, 80, 0.08);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary) !important;
+        }
+        
+        .nav-link {
+            color: var(--on-surface-variant) !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary) !important;
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 12px 24px;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--on-primary);
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0px 4px 20px rgba(21, 154, 80, 0.15);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--on-primary);
+        }
+        
+        /* Service cards as per design */
+        .service-card {
+            background-color: var(--surface-container-lowest);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0px 4px 20px rgba(21, 154, 80, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 30px rgba(21, 154, 80, 0.12);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary);
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .service-icon i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--on-surface);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .service-card p {
+            color: var(--on-surface-variant);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        /* Info sections */
+        .info-section {
+            background-color: rgba(var(--secondary-rgb), 0.15);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        /* Form styles */
+        .form-control, .form-select {
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--outline-variant);
+            background-color: var(--surface-container-lowest);
+            color: var(--on-surface);
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-family: var(--font-family-base);
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(var(--primary-rgb), 0.25);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--surface-container-low);
+            border-top: 1px solid var(--outline-variant);
+        }
+        
+        .footer a {
+            color: var(--on-surface-variant);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .display-4 {
+                font-size: calc(1.3rem + 2.5vw);
+            }
+            
+            .navbar-brand {
+                font-size: 1.25rem;
+            }
+        }
+        
+        /* Helper for RGB values (for rgba usage) */
+        .primary-rgb { --primary-rgb: 21, 154, 80; }
+        .secondary-rgb { --secondary-rgb: 178, 245, 234; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-heart-pulse-fill me-2" style="color: var(--primary);"></i>
+                고양이 병원
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">홈</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">진료안내</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">의료진소개</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">오시는길</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero bg-light py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h1 class="display-4">건강한 냥이 가족을 위한<br>전문 고양이 병원</h1>
+                    <p class="lead mb-4">
+                        고양이의 특성을 이해하는 수의사들이 최신 의료 장비와 따뜻한 마음으로<br>
+                        당신의 고양이를 가족처럼 돌봅니다.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-lg me-3">진료 예약하기</a>
+                    <a href="#" class="btn btn-outline-primary btn-lg">병원 둘러보기</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://via.placeholder.com/600x400?text=고양이+병원+이미지" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">우리 병원의 특화 진료</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-folder-plus"></i>
+                        </div>
+                        <h3>예방 접종 및 건강검진</h3>
+                        <p>
+                            생애 주기에 맞는 맞춤형 예방접종 프로그램과 정밀 건강검진으로<br>
+                            고양이의 질병을 사전에 예방합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <h3>심장 및 내과 전문 진료</h3>
+                        <p>
+                            고양이에게 흔한 심장질환과 내과적 문제를 전문 장비로 정확하게 진단하고<br>
+                            효과적인 치료 계획을 수립합니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card h-100">
+                        <div class="service-icon">
+                            <i class="bi bi-socket"></i>
+                        </div>
+                        <h3>외과 및 수술센터</h3>
+                        <p>
+                            중성화 수술부터 복잡한 연조직 수술까지 무균 상태의 수술실에서<br>
+                            경험豊富한 수의사가 집도합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://via.placeholder.com/600x400?text=고양이+의료진+이미지" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4">왜 우리 고양이 병원을 선택해야 할까요?</h2>
+                    <p class="mb-4">
+                        저희 병원은 고양이 전문 수의사들로 구성되어 있으며, 고양이의 생리학과 행동을 깊이 이해합니다.
+                        고양이만을 위한 별도의 진료 공간과 장비를 갖추어 스트레스를 최소화하고 정확한 진료를 제공합니다.
+                    </p>
+                    <div class="info-section mb-4">
+                        <h4 class="mb-3">우리 병원의 약속</h4>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle-fill me-2 text-primary"></i> 고양이 전용 진료실 운영</li>
+                            <li><i class="bi bi-check-circle-fill me-2 text-primary"></i> 최신 의료 장비 도입</li>
+                            <li><i class="bi bi-check-circle-fill me-2 text-primary"></i> 보호자 대상 상세 설명 및 상담</li>
+                            <li><i class="bi bi-check-circle-fill me-2 text-primary"></i> 24시간 응급 진료 체계</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="btn btn-outline-primary">의료진 소개 보기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">진료 예약 및 문의</h2>
+            <div class="row g-4">
+                <div class="col-lg-8 mx-auto">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">이름</label>
+                                <input type="text" class="form-control" id="name" placeholder="성함을 입력해주세요">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">연락처</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="전화번호를 입력해주세요">
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">이메일</label>
+                                <input type="email" class="form-control" id="email" placeholder="이메일을 입력해주세요">
+                            </div>
+                            <div class="col-12">
+                                <label for="message" class="form-label">문의 사항</label>
+                                <textarea class="form-control" id="message" rows="4" placeholder="문의 사항을 입력해주세요"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-lg w-100">예약하기</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>고양이 병원</h5>
+                    <p>
+                        고양이의 건강과 행복을 생각하는<br>
+                        전문 의료진이 함께 합니다.
+                    </p>
+                </div>
+                <div class="col-md-3 mb-3 mb-md-0">
+                    <h5> quick links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">홈</a></li>
+                        <li><a href="#">진료안내</a></li>
+                        <li><a href="#">의료진소개</a></li>
+                        <li><a href="#">오시는길</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3 mb-md-0">
+                    <h5>연락처</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-geo-alt me-2"></i> 서울특별시 강남구 테헤란로 123</li>
+                        <li><i class="bi bi-telephone me-2"></i> 02-1234-5678</li>
+                        <li><i class="bi bi-envelope me-2"></i> info@catclinic.example.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5>Follow Us</h5>
+                    <div class="d-flex">
+                        <a href="#" class="me-3 text-reset"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="me-3 text-reset"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="text-reset"><i class="bi bi-youtube fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top">
+                <small class="text-muted">&copy; 2026 고양이 병원. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
